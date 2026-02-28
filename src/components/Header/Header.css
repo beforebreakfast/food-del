@@ -1,0 +1,80 @@
+.header {
+    width: 100%;
+    height: 70vh;
+    margin: 40px auto;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+
+    background: url('/header_img.png') center/cover no-repeat;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(10, 25, 47, 0.75) 0%,
+        rgba(10, 25, 47, 0.55) 35%,
+        rgba(10, 25, 47, 0.15) 60%,
+        rgba(0,0,0,0) 75%
+    );
+}
+
+.header-contents {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    max-width: 520px;
+    gap: 24px;
+
+    color: #ffffff;
+    z-index: 2;
+
+    animation: fadeIn 3s;
+}
+
+.header-contents h1 {
+    font-size: clamp(72px, 9vw, 140px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -3px;
+    margin: 0;
+}
+
+.header-contents h1 {
+    word-break: break-word;
+}
+
+.header-contents p {
+    max-width: 460px;
+    font-size: 18px;
+    line-height: 1.7;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.header-contents button {
+    margin-top: 10px;
+    padding: 16px 36px;
+    border-radius: 50px;
+    border: none;
+    background: #ffffff;
+    color: #1F3A5F;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.header-contents button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
