@@ -60,3 +60,39 @@
     top: -8px;
     right: -8px;
 }
+
+@media (max-width:1050px) {
+    .navbar .logo{
+        width: 135px;
+    }
+    .navbar-menu{
+        gap: 20px;
+        font-size: 16px;
+    }
+    .navbar-right{
+        gap: 20px;
+    }
+}
+
+@media (max-width:900px) {
+    .navbar .logo{
+        width: 120px;
+    }
+    .navbar-menu{
+        gap: 15px;
+        font-size: 15px;
+    }
+    .navbar-right{
+        gap: 15px;
+    }
+    .navbar button{
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width:750px) {
+    .navbar-menu{
+        display: none;
+    }
+}

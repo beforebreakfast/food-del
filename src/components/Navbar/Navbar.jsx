@@ -1,36 +1,33 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './Navbar.css'
 import { assets } from '../../assets/assets'
+import { Link } from 'react-router-dom';
+import { StoreContext } from '../../context/StoreContext';
 
 const Navbar = () => {
 
-    const [menu,setMenu] = useState("Home");
+  const [menu, setMenu] = useState("Home");
+
+  const {getTotalCartAmount} = useContext(StoreContext)
 
 
   return (
     <div className="navbar">
-      
-      <img
+
+      <Link to='/'><img
         src={assets.logo}
         alt="Logo"
         className="logo"
         style={{ height: '50px', width: 'auto' }}
-      />
-
-      <ul className="navbar-menu">
-        <li onClick={()=>setMenu("Home")} className={menu==="Home"?"active":""}>หน้าหลัก</li>
-        <li onClick={()=>setMenu("Menu")} className={menu==="Menu"?"active":""}>เมนู</li>
-        <li onClick={()=>setMenu("Mobile App")} className={menu==="Mobile App"?"active":""}>Mobile App</li>
-        <li onClick={()=>setMenu("Contact Us")} className={menu==="Contact Us"?"active":""}>ติดต่อเรา</li>
-      </ul>
+      /></Link>
 
       <div className="navbar-right">
         <img src={assets.search_icon} alt="" />
         <div className="navbar-search-icon">
-          <img src={assets.basket_icon} alt="" />
-          <div className="dot"></div>
+          <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>
+          <div className={getTotalCartAmount()===0?"":"dot"}></div>
         </div>
-        <button>เข้าสู่ระบบ</button>
+
       </div>
 
     </div>

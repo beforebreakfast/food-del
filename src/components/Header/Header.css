@@ -78,3 +78,42 @@
     transform: translateY(-4px);
     box-shadow: 0 12px 30px rgba(0,0,0,0.25);
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+@media (max-width:1050px) {
+    .header-contents {
+        max-width: 55%;
+    }
+}
+
+@media (max-width:750px) {
+
+    .header {
+        height: 60vh;
+    }
+
+    .header-contents {
+        max-width: 80%;
+    }
+
+    .header-contents h2 {
+        font-size: 6vw;
+    }
+
+    .header-contents p {
+        display: none;
+    }
+
+    .header-contents button {
+        padding: 3vw 6vw;
+    }
+}

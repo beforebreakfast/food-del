@@ -1,77 +1,217 @@
-.food-item{
+:root {
+    --ocean-primary: #1da1f2;
+    --ocean-dark: #0d8ddb;
+    --ocean-soft: #f4f8fb;
+    --gray-soft: #f5f5f5;
+}
+
+.food-item {
     width: 100%;
-    margin: auto;
-    border-radius: 15px;
-    box-shadow: 0px 0px 10px #00000015;
-    transition: 0.3s;
-    animation: fadeIn 1s;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    transition: 0.3s ease;
+    cursor: pointer;
 }
 
-.food-item-image{
+.food-item:hover {
+    transform: translateY(-4px);
+}
+
+.food-item-image {
     width: 100%;
-    border-radius: 15px 15px 0px 0px;
+    height: 200px;
+    object-fit: cover;
 }
 
-.food-item-info{
-    padding: 20px;
+.food-item-info {
+    padding: 18px;
 }
 
-.food-item-name-rating{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.food-item-name-rating p{
+.food-item-info p:first-child {
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
-.food-item-name-rating img{
-    width: 70px;
-
+.food-item-desc {
+    color: #6b7280;
+    font-size: 13px;
+    margin-top: 6px;
 }
 
-.food-item-desc{
-    color: #676767;
-    font-size: 12px;
+.food-item-price {
+    color: var(--ocean-dark);
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 12px;
 }
 
-.food-item-price{
-    color: tomato;
-    font-size: 22px;
-    font-weight: 500;
-    margin: 10px 0px;
-
-}
-
-.food-item-img-container{
+.food-item-img-container {
     position: relative;
 }
 
-.food-item-img-container .add{
-    width: 35px;
+.food-item-img-container .add {
+    width: 55px;
     position: absolute;
     bottom: 15px;
     right: 15px;
     cursor: pointer;
     border-radius: 50%;
+    padding: 9px;
+    transition: 0.2s;
 }
 
-.food-item-couter{
+.food-item-img-container .add:hover {
+    transform: scale(1.1);
+}
+
+.food-item-counter {
     position: absolute;
     bottom: 15px;
     right: 15px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 6px;
+    gap: 12px;
+    background: var(--gray-soft);
+    padding: 6px 14px;
     border-radius: 50px;
-    background-color: white;
 }
 
-.food-item-couter img {
-    width: 30px;
+.food-item-counter img {
+    width: 24px;
+    cursor: pointer;
 }
 
+.food-item-counter p {
+    font-weight: 600;
+    color: var(--ocean-dark);
+}
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.popup-box {
+    background: #ffffff;
+    width: 380px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: popUp 0.2s ease;
+}
+
+.popup-box h3 {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.popup-base-price {
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+.popup-options {
+    margin-bottom: 20px;
+}
+
+.popup-options h4 {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #111827;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    background: var(--gray-soft);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    justify-content: flex-start; 
+}
+
+.option-item label {
+    cursor: pointer;
+    text-align: left;
+}
+
+.popup-quantity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.popup-quantity button {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: none;
+    background: var(--gray-soft);
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.popup-quantity span {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.popup-total {
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--ocean-dark);
+}
+
+.popup-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.confirm-btn {
+    flex: 1;
+    background: var(--ocean-primary);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.confirm-btn:hover {
+    background: var(--ocean-dark);
+}
+
+.cancel-btn {
+    flex: 1;
+    background: #e5e7eb;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background: #d1d5db;
+}
+
+@keyframes popUp {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
