@@ -20,3 +20,8 @@ A modern food delivery web application built with **React + Vite**, containerize
 - **Containerization:** Docker
 - **Cloud:** AWS EC2
 - **Version Control:** Git & GitHub
+
+---
+
+## Live Demo
+- http://3.26.152.50:3000/
